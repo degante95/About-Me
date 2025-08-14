@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import s from "./DarkModeToggle.module.css";
 
 /**
- * This function allows dark mode based on user system preference
+ * Dark mode toggle using `data-theme` on <html>
  */
-
 const THEME_KEY = "theme";
 
 const getPreferredTheme = (): "dark" | "light" => {
@@ -15,7 +15,7 @@ const getPreferredTheme = (): "dark" | "light" => {
   return "light";
 };
 
-const DarkModeToggle = () => {
+const DarkModeToggle: React.FC = () => {
   const [theme, setTheme] = useState<"light" | "dark">(getPreferredTheme);
 
   useEffect(() => {
@@ -34,17 +34,11 @@ const DarkModeToggle = () => {
 
   return (
     <button
+      className={s.button}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      style={{
-        background: "none",
-        border: "none",
-        cursor: "pointer",
-        fontSize: "1.25rem",
-        padding: 0,
-        margin: 0,
-        lineHeight: 1,
-      }}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      aria-pressed={theme === "dark"}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
       {theme === "dark" ? "🌞" : "🌚"}
     </button>

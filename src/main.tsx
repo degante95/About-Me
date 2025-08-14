@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./styles.css";
+import App from "./app/App";
+import "@/styles/globals.css";
 
 // Prevent browser scroll restore *before* React mounts
 if (typeof window !== "undefined" && "scrollRestoration" in window.history) {

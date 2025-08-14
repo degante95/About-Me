@@ -1,5 +1,5 @@
 import React from "react";
-import { ResumeModal } from "./Resume";
+import { ResumeModal } from "../Resume/Resume";
 
 /**
  * About section component.

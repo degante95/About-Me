@@ -1,0 +1,556 @@
+/*!*!**!*/
+/*!* * Global styles for the personal site.*!*/
+/*!* * We define a warm, soothing color palette inspired by 2025 web design trends*!*/
+/*!* * to reduce visual fatigue while maintaining a modern look.*!*/
+/*!* *!*!*/
+
+/*:root {*/
+/*    --color-bg: #fdf8f3;*/
+/*    !*--color-bg: #4B5D52;*!*/
+/*    --color-primary: #8c6a4f; !* warm brown accent *!*/
+/*    --color-secondary: #c5a880; !* softer beige accent *!*/
+/*    --color-heading: #1e1e1e;*/
+/*    --color-text: #333333;*/
+/*    --color-cta-bg: #8c6a4f;*/
+/*    --color-cta-text: #ffffff;*/
+/*    --font-heading: 'Playfair Display', serif;*/
+/*    --font-body: 'Inter', sans-serif;*/
+/*    --navbar-height: 56px;*/
+/*}*/
+/*section[id] { scroll-margin-top: var(--navbar-height, 64px); }*/
+
+/**, *::before, *::after { box-sizing: border-box; }*/
+
+/*[data-theme="dark"] {*/
+/*    --color-bg: #232926;*/
+/*    --color-primary: #bfa37d;         !* lighter, warm accent for dark bg *!*/
+/*    --color-secondary: #998c75;*/
+/*    --color-heading: #f5f5f5;*/
+/*    --color-text: #d6d3ce;*/
+/*    --color-cta-bg: #bfa37d;*/
+/*    --color-cta-text: #1e1e1e;*/
+/*}*/
+
+/*[data-theme="dark"] .project-card {*/
+/*    background-color: #2a2f2b;  !* or a similar dark shade *!*/
+/*    color: var(--color-text);   !* ensures text is light *!*/
+/*    box-shadow: 0 4px 10px rgba(0,0,0,0.25); !* deeper shadow for dark bg *!*/
+/*}*/
+
+/*!* (optional) You may want to tweak .button in dark mode too: *!*/
+/*[data-theme="dark"] .button {*/
+/*    background-color: var(--color-cta-bg);*/
+/*    color: var(--color-cta-text);*/
+/*}*/
+
+/*html, body,*/
+/*.navbar,*/
+/*.project-card,*/
+/*.button {*/
+/*    transition:*/
+/*            background-color 0.3s,*/
+/*            color 0.3s,*/
+/*            box-shadow 0.3s,*/
+/*            border-color 0.3s;*/
+/*}*/
+
+
+/*html, body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-family: var(--font-body);*/
+/*    background-color: var(--color-bg);*/
+/*    color: var(--color-text);*/
+/*    scroll-behavior: smooth;*/
+/*}*/
+
+/*h1, h2, h3, h4, h5, h6 {*/
+/*    font-family: var(--font-heading);*/
+/*    margin: 0 0 0.5rem 0;*/
+/*    color: var(--color-heading);*/
+/*}*/
+
+/*a {*/
+/*    text-decoration: none;*/
+/*    color: inherit;*/
+/*}*/
+
+/*!* Utility classes *!*/
+/*.section {*/
+/*    padding: 4rem 1rem;*/
+/*    max-width: 1000px;*/
+/*    margin: 0 auto;*/
+/*    scroll-margin-top: calc(var(--navbar-height) + 12px);*/
+/*}*/
+
+/*!* Navigation styles *!*/
+/*.navbar {*/
+/*    position: fixed;*/
+/*    inset: 0 0 auto 0;*/
+/*    height: var(--navbar-height);*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*    padding: 0 1.25rem;         !* no vertical padding inflating height *!*/
+/*    background: var(--color-bg);*/
+/*    box-shadow: 0 2px 4px rgba(0,0,0,.05);*/
+/*    z-index: 10;*/
+/*}*/
+
+/*.navbar ul {*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*    gap: 1.25rem;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.navbar li {*/
+/*    list-style: none;*/
+/*    font-size: 1rem;*/
+/*    cursor: pointer;*/
+/*    transition: color 0.2s ease;*/
+/*}*/
+
+/*.navbar li:hover {*/
+/*    color: var(--color-primary);*/
+/*}*/
+
+/*.navbar button:hover,*/
+
+/*.navbar button:focus {*/
+/*    color: var(--color-primary);*/
+/*    outline: none;*/
+/*}*/
+
+/*!* Hamburger styles *!*/
+/*.hamburger {*/
+/*    display: none;*/
+/*    flex-direction: column;*/
+/*    gap: 5px;*/
+/*    justify-content: center;*/
+/*    background: none;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*    padding: 0.5rem;*/
+/*    z-index: 20;*/
+/*}*/
+/*.hamburger span {*/
+/*    display: block;*/
+/*    width: 24px;*/
+/*    height: 3px;*/
+/*    background: var(--color-primary);*/
+/*    border-radius: 2px;*/
+/*    transition: background 0.3s;*/
+/*}*/
+
+/*.hamburger.is-hidden {*/
+/*    visibility: hidden;*/
+/*}  !* no layout shift *!*/
+
+/*!* Hamburger visible on mobile *!*/
+/*@media (max-width: 768px) {*/
+/*    .hamburger {*/
+/*        display: flex;*/
+/*        margin-left: auto;*/
+/*    }*/
+/*}*/
+
+/*!* Nav menu (default: desktop) *!*/
+/*.nav-menu {*/
+/*    display: flex;*/
+/*    list-style: none;*/
+/*    gap: 1.5rem;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    align-items: center;*/
+/*    transition: right 0.3s;*/
+/*}*/
+
+/*!* Nav menu mobile overlay *!*/
+/*@media (max-width: 768px) {*/
+/*    .nav-menu {*/
+/*        flex-direction: column;*/
+/*        background: var(--color-bg);*/
+/*        position: fixed;*/
+/*        top: 0;*/
+/*        right: -100vw;*/
+/*        width: 70vw;*/
+/*        max-width: 320px;*/
+/*        height: 100dvh;*/
+/*        padding-top: 0.75rem;*/
+/*        gap: 2rem;*/
+/*        box-shadow: 0 2px 24px rgba(0,0,0,0.14);*/
+/*        transition: right 0.3s;*/
+/*        z-index: 15;*/
+/*    }*/
+/*    .nav-menu.open {*/
+/*        right: 0;*/
+/*    }*/
+/*    .navbar ul {*/
+/*        box-shadow: none;*/
+/*    }*/
+/*    .navbar {*/
+/*        flex-direction: row;*/
+/*        align-items: center;*/
+/*        padding: 1rem 1rem;*/
+/*    }*/
+/*}*/
+
+/*!* Desktop nav menu resets *!*/
+/*@media (min-width: 769px) {*/
+/*    .nav-menu {*/
+/*        position: static;*/
+/*        height: auto;*/
+/*        flex-direction: row;*/
+/*        background: none;*/
+/*        width: auto;*/
+/*        box-shadow: none;*/
+/*        padding-top: 0;*/
+/*    }*/
+/*}*/
+
+/*!* Add *!*/
+/*.menu-header {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*    padding: .25rem 0 .5rem;*/
+/*    border-bottom: 1px solid rgba(0,0,0,.08);*/
+/*    margin-bottom: .25rem;*/
+/*}*/
+/*.menu-close {*/
+/*    width: 40px;*/
+/*    height: 40px;*/
+/*    border: 0;*/
+/*    background: transparent;*/
+/*    cursor: pointer;*/
+/*    font-size: 28px;*/
+/*    line-height: 1;*/
+/*    color: inherit;*/
+/*}*/
+
+/*.menu-close-position {*/
+/*    align-self: flex-end;   !* moves the LI to the right edge *!*/
+/*    margin-right: 1rem;*/
+/*}*/
+
+/*!* Hide header/close on desktop *!*/
+/*@media (min-width: 769px) {*/
+/*    .menu-header, .menu-close { display: none; }*/
+/*}*/
+
+/*.backdrop {*/
+/*    position: fixed; inset: 0;*/
+/*    background: rgba(0,0,0,0);*/
+/*    border: 0;*/
+/*    z-index: 14;               !* between navbar(10) and drawer(15) *!*/
+/*}*/
+
+
+
+/*!* CTA button styles *!*/
+/*.button {*/
+/*    display: inline-block;*/
+/*    background-color: var(--color-cta-bg);*/
+/*    color: var(--color-cta-text);*/
+/*    padding: 0.75rem 1.5rem;*/
+/*    border-radius: 4px;*/
+/*    font-weight: 700;*/
+/*    transition: background-color 0.3s ease;*/
+/*}*/
+
+/*.button:hover {*/
+/*    background-color: var(--color-primary);*/
+/*}*/
+
+/*!* Card styles for projects *!*/
+/*.project-grid {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
+/*    gap: 2rem;*/
+/*}*/
+
+/*.project-card {*/
+/*    background-color: #ffffff;*/
+/*    border-radius: 8px;*/
+/*    padding: 1.5rem;*/
+/*    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);*/
+/*    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+/*}*/
+
+/*.project-card:hover {*/
+/*    transform: translateY(-4px);*/
+/*    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);*/
+/*}*/
+
+/*.project-card h3 {*/
+/*    margin-bottom: 0.5rem;*/
+/*}*/
+
+/*.project-card p {*/
+/*    margin-bottom: 1rem;*/
+/*}*/
+
+/*.tech-icons-grid {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    gap: 2rem 2.5rem;*/
+/*    justify-content: flex-start;*/
+/*    align-items: center;*/
+/*    margin: 2rem 0 0 0;*/
+/*}*/
+
+/*.tech-icon-item {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    min-width: 64px;*/
+/*    font-size: 2.2rem;*/
+/*    color: var(--color-primary);*/
+/*    transition: color 0.2s;*/
+/*}*/
+
+/*.tech-icon-item span {*/
+/*    margin-top: 0.5rem;*/
+/*    font-size: 1rem;*/
+/*    color: var(--color-text);*/
+/*    text-align: center;*/
+/*}*/
+
+/*.tech-icon-item:hover {*/
+/*    color: var(--color-secondary);*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*!* --- Hero --- *!*/
+/*.hero {*/
+/*    position: relative;*/
+/*    min-height: calc(100svh - var(--navbar-height)); !* viewport minus fixed nav *!*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: flex-start;*/
+
+/*    !* ensure content never hides under the fixed navbar *!*/
+/*    padding-top: calc(var(--navbar-height) + 1.25rem);*/
+/*    padding-bottom: 6rem; !* leaves room for the scroll cue *!*/
+/*    gap: 1rem;*/
+/*}*/
+
+/*.hero-title { font-size: clamp(2.25rem, 6vw, 3.25rem); }*/
+/*.hero-subtitle { font-size: clamp(1.05rem, 2.5vw, 1.25rem); max-width: 60ch; line-height: 1.6; }*/
+
+/*.hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }*/
+
+/*@media (max-width: 480px) {*/
+/*    .hero {*/
+/*        padding-top: calc(var(--navbar-height) + 0.75rem);*/
+/*        padding-bottom: 5.25rem; !* keep room for the cue *!*/
+/*        gap: 0.75rem;*/
+/*    }*/
+/*    .hero-title { font-size: clamp(1.75rem, 8vw, 2.25rem); }*/
+/*    .hero-subtitle { font-size: 1rem; }*/
+/*    .hero-cta .button { padding: 0.6rem 1rem; }*/
+/*}*/
+
+/*.section.hero {*/
+/*    position: relative;*/
+/*    !* total box height = viewport minus nav (padding included, thanks to border-box) *!*/
+/*    height: calc(100svh - var(--navbar-height));*/
+/*    box-sizing: border-box;*/
+
+/*    padding: 0 1rem;*/
+/*    padding-top: calc(var(--navbar-height) + 1.25rem);*/
+/*    padding-bottom: 5rem; !* room for cue *!*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    gap: 1rem;*/
+/*    max-width: 1000px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*@media (max-height: 620px) {*/
+/*    .section.hero {*/
+/*        padding-top: calc(var(--navbar-height) + 0.5rem);*/
+/*        padding-bottom: 4.25rem;*/
+/*    }*/
+/*    .hero-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }*/
+/*    .hero-subtitle { font-size: 0.98rem; }*/
+/*}*/
+
+/*.button--secondary {*/
+/*    background: transparent;*/
+/*    color: var(--color-cta-bg);*/
+/*    border: 2px solid var(--color-cta-bg);*/
+/*}*/
+/*.button--secondary:hover { background: var(--color-primary); color: var(--color-cta-text); }*/
+
+/*!* --- Scroll cue --- *!*/
+/*.scroll-cue {*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    bottom: clamp(12px, 3vh, 28px); !* always in-frame, even on tall screens *!*/
+/*    transform: translateX(-50%);*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    gap: .5rem;*/
+/*    border: 0;*/
+/*    background: transparent;*/
+/*    color: var(--color-primary);*/
+/*    font-weight: 600;*/
+/*    cursor: pointer;*/
+/*    padding: .5rem 1rem;*/
+/*    opacity: .9;*/
+/*    z-index: 2; !* sit above other hero content *!*/
+/*}*/
+/*@media (prefers-reduced-motion: no-preference) {*/
+/*    .scroll-cue svg { animation: bob 1.5s ease-in-out infinite; }*/
+/*    @keyframes bob {*/
+/*        0%,100% { transform: translateY(0); }*/
+/*        50% { transform: translateY(4px); }*/
+/*    }*/
+/*}*/
+
+/*!* --- Small entrance motion (respect reduced motion) --- *!*/
+/*@media (prefers-reduced-motion: no-preference) {*/
+/*    .fade-in-up { opacity: 0; transform: translateY(12px); animation: fadeUp 360ms ease forwards; }*/
+/*    @keyframes fadeUp { to { opacity: 1; transform: none; } }*/
+/*}*/
+
+/*!* --- Active nav highlighting --- *!*/
+/*.navbar a { font-size: 0.95rem; line-height: 1; }*/
+/*.navbar a.active { color: var(--color-primary); font-weight: 700; }*/
+
+
+/*!*hero modern*!*/
+
+/*!* ===== Modern hero visuals (palette only) ===== *!*/
+/*.hero--modern {*/
+/*    align-items: center;            !* center content like the Figma layout *!*/
+/*    text-align: center;*/
+/*}*/
+/*.hero-inner {*/
+/*    position: relative;*/
+/*    z-index: 1;*/
+/*    display: grid;*/
+/*    justify-items: center;*/
+/*    gap: 0.75rem;*/
+/*}*/
+
+/*!* Subtle background wash using your colors *!*/
+/*.hero-bg {*/
+/*    position: absolute;*/
+/*    inset: 0;*/
+/*    pointer-events: none;*/
+/*    z-index: 0;*/
+/*}*/
+/*.hero-gradient {*/
+/*    position: absolute;*/
+/*    inset: 0;*/
+/*    background:*/
+/*            radial-gradient(60% 50% at 10% 15%, color-mix(in lab, var(--color-primary) 18%, transparent), transparent 60%),*/
+/*            radial-gradient(50% 45% at 85% 20%, color-mix(in lab, var(--color-secondary) 16%, transparent), transparent 60%),*/
+/*            linear-gradient(to bottom, transparent 0%, color-mix(in lab, var(--color-bg) 80%, transparent) 100%);*/
+/*}*/
+
+/*!* Floating orbs (motion ON by default) *!*/
+/*.orb {*/
+/*    position: absolute;*/
+/*    border-radius: 999px;*/
+/*    background: currentColor;*/
+/*}*/
+/*.orb--1 { color: var(--color-primary);   top: 16%; left: 8%;  width: 14px; height: 14px; opacity: .28; animation: floatY 4s ease-in-out infinite; }*/
+/*.orb--2 { color: var(--color-secondary); top: 48%; right: 12%; width: 10px; height: 10px; opacity: .35; animation: floatXY 6s ease-in-out infinite; }*/
+/*.orb--3 { color: var(--color-primary);   bottom: 18%; left: 20%; width: 18px; height: 18px; opacity: .18; animation: floatSpin 8s ease-in-out infinite; }*/
+
+/*@keyframes floatY   { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }*/
+/*@keyframes floatXY  { 0%,100% { transform: translate(0,0) } 50% { transform: translate(-10px, 8px) } }*/
+/*@keyframes floatSpin{ 0% { transform: translateY(0) rotate(0) } 50% { transform: translateY(-16px) rotate(180deg) } 100% { transform: translateY(0) rotate(360deg) } }*/
+
+/*!* Respect users who explicitly prefer less motion *!*/
+/*@media (prefers-reduced-motion: reduce) {*/
+/*    .orb, .scroll-cue svg { animation: none !important; }*/
+/*}*/
+
+/*!* Badge pill *!*/
+/*.badge {*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    gap: .5rem;*/
+/*    padding: 0.35rem 0.75rem;*/
+/*    border-radius: 999px;*/
+/*    color: var(--color-primary);*/
+/*    border: 1px solid color-mix(in lab, var(--color-primary) 40%, transparent);*/
+/*    background: color-mix(in lab, var(--color-primary) 10%, transparent);*/
+/*    backdrop-filter: blur(6px);*/
+/*    font-weight: 600;*/
+/*    font-size: 0.9rem;*/
+/*}*/
+/*.badge .badge-icon { display: block; }*/
+
+/*!* Gradient name text using your palette *!*/
+/*.text-gradient {*/
+/*    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));*/
+/*    -webkit-background-clip: text;*/
+/*    background-clip: text;*/
+/*    color: transparent;*/
+/*}*/
+
+/*!* ===== Figma-like buttons (but tinted by your palette) ===== *!*/
+/*.button {*/
+/*    --btn-bg1: var(--color-primary);*/
+/*    --btn-bg2: var(--color-secondary);*/
+/*    --btn-shadow: color-mix(in lab, var(--color-primary) 30%, transparent);*/
+
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    gap: .35rem;*/
+/*    padding: 0.8rem 1.1rem;*/
+/*    border-radius: 999px;*/
+/*    border: 1px solid color-mix(in lab, var(--color-primary) 35%, transparent);*/
+/*    background-image: linear-gradient(90deg, var(--btn-bg1), var(--btn-bg2));*/
+/*    color: white;*/
+/*    font-weight: 700;*/
+/*    letter-spacing: 0.15px;*/
+/*    box-shadow: 0 8px 24px -8px var(--btn-shadow);*/
+/*    transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;*/
+/*}*/
+/*.button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px -8px var(--btn-shadow); }*/
+/*.button:active { transform: translateY(0); }*/
+
+/*.button--ghost {*/
+/*    background: color-mix(in lab, var(--color-bg) 70%, transparent);*/
+/*    color: var(--color-heading);*/
+/*    border: 1px solid color-mix(in lab, var(--color-heading) 20%, transparent);*/
+/*    box-shadow: none;*/
+/*}*/
+/*.button--ghost:hover {*/
+/*    background: color-mix(in lab, var(--color-bg) 80%, transparent);*/
+/*}*/
+
+/*!* Tweak existing hero spacing to better match Figma *!*/
+/*.hero-title { font-size: clamp(2.5rem, 7vw, 4rem); margin-bottom: .15rem; }*/
+/*.hero-subtitle { font-size: clamp(1.05rem, 2.5vw, 1.25rem); max-width: 60ch; line-height: 1.6; }*/
+/*.hero-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }*/
+
+/*!* updated override*!*/
+/*!* Make hero full-bleed, then constrain only the text block *!*/
+/*.section.hero {*/
+/*    max-width: none;         !* override the .section cap *!*/
+/*    width: 100%;*/
+/*    padding-left: 0;         !* we'll pad the inner container instead *!*/
+/*    padding-right: 0;*/
+/*}*/
+
+/*.hero-inner {*/
+/*    max-width: 1100px;       !* readable line-length *!*/
+/*    margin: 0 auto;*/
+/*    padding-inline: clamp(16px, 6vw, 40px);*/
+/*}*/
+
+/*.hero { overflow: hidden; } !* keeps floaters clipped to viewport *!*/
+/*.hero-bg { position: absolute; inset: 0; } !* background spans full width *!*/
