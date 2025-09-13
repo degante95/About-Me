@@ -1,0 +1,60 @@
+/* keep flex (as you asked), but normalize cells */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.75rem 2rem;
+    justify-items: center;
+    align-items: start;
+    margin: 2rem 0 0 0;
+}
+
+/* fixed-width cells so columns align, but still wrap */
+.item {
+    width: 120px;                      /* tweak 110–140px if you prefer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;                    /* kills stray inline line-height gaps */
+    color: var(--color-primary);
+    transition: color 0.2s ease;
+}
+.item:hover { color: var(--color-secondary); cursor: pointer; }
+
+/* square icon box → every icon sits in the same-sized frame */
+.icon {
+    --icon-box: 44px;                  /* overall box */
+    --icon-size: 28px;                 /* actual glyph size */
+    width: var(--icon-box);
+    height: var(--icon-box);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* normalize the SVGs from react-icons */
+.icon :global(svg) {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    display: block;                    /* removes baseline gap */
+}
+
+/* label under icon */
+.label {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    text-align: center;
+}
+
+/* --- Mobile: force 3 across --- */
+@media (max-width: 768px) {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        justify-items: center;
+        align-items: start;
+    }
+    .item { width: auto; } /* grid controls width */
+}
+
