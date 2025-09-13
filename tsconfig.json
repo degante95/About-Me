@@ -23,5 +23,11 @@
       "@hooks/*": ["src/hooks/*"],
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.json" }
+  ]
+
 }

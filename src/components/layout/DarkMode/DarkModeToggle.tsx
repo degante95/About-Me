@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import s from "./DarkModeToggle.module.css";
+import { Sun, Moon } from "lucide-react";
 
 /**
  * Dark mode toggle using `data-theme` on <html>
@@ -40,7 +41,11 @@ const DarkModeToggle: React.FC = () => {
       aria-pressed={theme === "dark"}
       title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
-      {theme === "dark" ? "🌞" : "🌚"}
+      {theme === "dark" ? (
+        <Sun className="h-4 w-4" />
+      ) : (
+        <Moon className="h-4 w-4" />
+      )}
     </button>
   );
 };

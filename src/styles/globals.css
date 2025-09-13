@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /* ================================
    GLOBALS (no navbar/mobile nav here)
    ================================ */
@@ -30,6 +31,17 @@
     --color-cta-text: #1e1e1e;
 }
 
+/* ---- Tailwind theme mappings ---- */
+@theme inline {
+    --color-background: var(--color-bg);
+    --color-foreground: var(--color-text);
+    --color-primary: var(--color-primary);
+    --color-secondary: var(--color-secondary);
+    --color-heading: var(--color-heading);
+    --color-cta: var(--color-cta-bg);
+    --color-border: color-mix(in lab, var(--color-heading) 10%, transparent);
+}
+
 /* ---- Reset / base ---- */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -53,28 +65,10 @@ a:focus-visible, button:focus-visible {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    /*font-family: var(--font-heading);*/
     color: var(--color-heading);
     margin: 0 0 .5rem 0;
 }
-
-/* ---- Shared layout utility for sections ---- */
-.section {
-    /* keeps anchor scroll from hiding under fixed navbar */
-    scroll-margin-top: var(--navbar-height);
-
-    /* natural height (no forced full-screen) */
-    padding: 4rem 1rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-/* Tighter rhythm between stacked sections */
-.section + .section { padding-top: 3rem; }
-
-/* Make short sections a bit more compact */
-#about.section { padding-bottom: 3rem; }
-#connect.section { padding-top: 3rem; padding-bottom: 3rem; }
 
 
 /* ---- Buttons (shared) ---- */
@@ -117,7 +111,9 @@ h1, h2, h3, h4, h5, h6 {
 /* ---- Shared effects ---- */
 .text-gradient {
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 /* Only animate (and hide initially) when motion is OK */
@@ -130,14 +126,3 @@ h1, h2, h3, h4, h5, h6 {
 @media (prefers-reduced-motion: reduce) {
     .fade-in-up { opacity: 1; transform: none; }
 }
-
-
-
-/* ---- (Optional) dark-mode overrides for cards/buttons if you use them ---- */
-/*
-[data-theme="dark"] .project-card {
-  background: #2a2f2b;
-  color: var(--color-text);
-  box-shadow: 0 4px 10px rgba(0,0,0,.25);
-}
-*/
