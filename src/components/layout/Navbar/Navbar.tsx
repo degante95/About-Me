@@ -8,7 +8,7 @@ const NAV_LINKS: NavLink[] = [
   { href: "/home", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/tech", label: "Tech" },
-  { href: "/projects", label: "Experience & Projects" },
+  { href: "/projects", label: "Projects & Certificates" },
   { href: "/connect", label: "Connect" },
 ];
 

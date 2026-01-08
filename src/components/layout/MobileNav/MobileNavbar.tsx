@@ -67,6 +67,7 @@ export default function MobileNavbar({
         aria-label="Mobile navigation"
       >
         <li className={s.menuClosePosition}>
+          <DarkModeToggle />
           <button
             className={s.menuClose}
             aria-label="Close menu"
@@ -95,10 +96,6 @@ export default function MobileNavbar({
             </li>
           );
         })}
-
-        <li>
-          <DarkModeToggle />
-        </li>
       </ul>
     </>
   );

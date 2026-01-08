@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
         >
           <Button
             size="lg"
-            onClick={() => scrollToSection("#experience")}
+            onClick={() => scrollToSection("#projects")}
             className="w-full border-0 shadow-lg sm:w-auto bg-gradient-to-r from-[color:var(--color-cta-bg)] to-[color:var(--color-secondary)] hover:brightness-105"
             style={{
               boxShadow:

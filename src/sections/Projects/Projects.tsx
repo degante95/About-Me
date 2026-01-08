@@ -6,7 +6,6 @@ import {
   Award,
   GraduationCap,
   Calendar,
-  CheckCircle,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
@@ -19,6 +18,7 @@ import {
 } from "@components/ui/card";
 import { Button } from "@components/ui/button";
 import { Badge } from "@components/ui/badge";
+import tfIcon from "@/assets/icons/tficon.png"; // alias @ -> src
 
 const projects = [
   {
@@ -29,7 +29,6 @@ const projects = [
     metrics: "Modern Design",
     tags: ["React", "TypeScript", "Tailwind"],
     icon: Award,
-    gradient: "from-violet-500 to-purple-600",
   },
   {
     title: "Bend by FNBO",
@@ -39,7 +38,6 @@ const projects = [
     metrics: "6,000+ clients",
     tags: ["AWS", "Microservices", "API"],
     icon: TrendingUp,
-    gradient: "from-emerald-500 to-teal-600",
   },
   {
     title: "Milli Bank",
@@ -49,34 +47,31 @@ const projects = [
     metrics: "33,000+ users",
     tags: ["Performance", "UX", "Banking"],
     icon: Users,
-    gradient: "from-blue-500 to-cyan-600",
   },
 ];
 
 const certificates = [
   {
+    title: "Terraform Associate (003)",
+    issuer: "HashiCorp",
+    date: "2025",
+    status: "Active",
+    description:
+      "Certifies core Terraform skills: HCL, modules, state, providers, and workflows.",
+    tags: ["Terraform", "Infrastructure as Code", "State Management"],
+    iconSrc: tfIcon,
+    credentialId: "3e58aa62-5079-47b1-9b29-39c1a2075bc2",
+  },
+  {
     title: "AWS Certified Solutions Architect",
     issuer: "Amazon Web Services",
-    date: "2025",
+    date: "2026",
     status: "coming soon",
     description:
       "Validates expertise in designing distributed systems and selecting appropriate AWS services for various requirements.",
     tags: ["AWS", "Cloud Architecture", "Distributed Systems"],
     icon: GraduationCap,
-    gradient: "from-orange-500 to-red-600",
-    credentialId: "AWS-ASA-2024-001",
-  },
-  {
-    title: "Certified Kubernetes Administrator",
-    issuer: "Cloud Native Computing Foundation",
-    date: "2023",
-    status: "Active",
-    description:
-      "Demonstrates skills in Kubernetes cluster management, troubleshooting, and application lifecycle management.",
-    tags: ["Kubernetes", "DevOps", "Container Orchestration"],
-    icon: CheckCircle,
-    gradient: "from-blue-500 to-indigo-600",
-    credentialId: "CKA-2023-789",
+    credentialId: "",
   },
 ];
 
@@ -85,25 +80,6 @@ const certificates = [
  * Displays a grid of project cards with titles, descriptions and links.
  */
 const Projects: React.FC = () => {
-  // const projects: Project[] = [
-  //   {
-  //     title: "Personal Site",
-  //     description:
-  //       "Built a modern personal site with full-screen landing, scroll-synced routing, sticky nav, dark mode, and mobile drawer.",
-  //     link: "https://github.com/degante95/About-Me",
-  //   },
-  //   {
-  //     title: "Bend by FNBO",
-  //     description:
-  //       "Contributed to scaling FNBO’s Bend platform by enhancing event-driven microservices and AWS-powered APIs, automating workflows, and improving efficiency for 6,000+ clients.",
-  //   },
-  //   {
-  //     title: "Milli Bank",
-  //     description:
-  //       "Contributed to Milli Bank’s customer operations platform by improving load times, streamlining account closures, and enhancing the experience for 33,000+ users.",
-  //   },
-  // ];
-
   return (
     <section id="projects" className="py-20 px-6 relative">
       <div className="max-w-6xl mx-auto relative z-10">
@@ -115,9 +91,9 @@ const Projects: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl mb-4 text-[color:var(--color-heading)]">
-            Experience &{" "}
+            Projects &{" "}
             <span className="bg-gradient-to-r from-[color:var(--color-primary)] to-[color:var(--color-secondary)] bg-clip-text text-transparent">
-              Projects
+              Certificates
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -222,7 +198,7 @@ const Projects: React.FC = () => {
 
             {/* Certificates */}
             <TabsContent value="certificates" className="mt-0">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {certificates.map((cert, index) => (
                   <motion.div
                     key={index}
@@ -240,9 +216,24 @@ const Projects: React.FC = () => {
                       <CardHeader className="pb-4">
                         <div className="flex items-start justify-between mb-4">
                           {/* Primary icon chip */}
-                          <div className="p-3 rounded-lg bg-[color:var(--color-primary)] shadow-lg">
-                            <cert.icon className="h-6 w-6 text-white" />
-                          </div>
+                          {cert.iconSrc ? (
+                            // <div className="p-1">
+                            <img
+                              src={cert.iconSrc}
+                              alt={`${cert.title} icon`}
+                              className="h-16 w-16 object-contain"
+                            />
+                          ) : //*</div>*/
+                          cert.icon ? (
+                            <div className="p-3 mb-4 rounded-lg bg-[color:var(--color-primary)] shadow-lg">
+                              <cert.icon className="h-6 w-6 text-white" />
+                            </div>
+                          ) : (
+                            // optional fallback if neither iconSrc nor icon exists
+                            <div className="p-3 rounded-lg bg-[color:var(--color-primary)] shadow-lg">
+                              <span className="h-6 w-6" />
+                            </div>
+                          )}
                           <Badge
                             variant="secondary"
                             className={`bg-white/10 text-xs ${
