@@ -5,27 +5,17 @@ import { Card } from "@components/ui/card";
 
 const socialLinks = [
   {
-    name: "Email",
-    icon: Mail,
-    href: "mailto:carlos@example.com",
-    description: "Drop me a line",
-    gradient: "from-red-500 to-orange-500",
-    hoverColor: "hover:shadow-red-500/25",
-  },
-  {
     name: "GitHub",
     icon: Github,
-    href: "https://github.com",
+    href: "https://github.com/degante95",
     description: "Check out my code",
-    gradient: "from-gray-700 to-gray-800",
     hoverColor: "hover:shadow-gray-500/25",
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://linkedin.com",
+    href: "https://linkedin.com/in/carlos-degante-3677a815a",
     description: "Let's connect",
-    gradient: "from-blue-600 to-blue-700",
     hoverColor: "hover:shadow-blue-500/25",
   },
 ];
@@ -34,7 +24,10 @@ const socialLinks = [
  */
 const Connect: React.FC = () => {
   return (
-    <section id="connect" className="py-20 px-6 relative overflow-hidden">
+    <section
+      id="connect"
+      className="min-h-screen py-20 px-6 relative overflow-hidden"
+    >
       {/* Floating Elements (tokenized) */}
       <motion.div
         className="absolute top-20 right-10 w-2 h-2 rounded-full opacity-40 bg-[color:var(--color-secondary)]"
@@ -67,28 +60,40 @@ const Connect: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {socialLinks.map((link, index) => (
-            <motion.div
-              key={link.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              whileHover={{ y: -8 }}
-            >
-              <Card className="p-6 border-0 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm hover:from-white/10 hover:to-white/15 transition-all duration-300 cursor-pointer hover:shadow-lg relative overflow-hidden">
-                {/* Primary icon chip */}
-                <div className="w-12 h-12 rounded-xl bg-[color:var(--color-primary)] mx-auto mb-4 flex items-center justify-center shadow-lg">
-                  <link.icon className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="font-medium mb-2">{link.name}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {link.description}
-                </p>
-              </Card>
-            </motion.div>
-          ))}
+        <div className="mb-16">
+          <div className="max-w-2xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
+              {socialLinks.map((link, index) => {
+                const isExternal = link.href.startsWith("http");
+                return (
+                  <motion.a
+                    key={link.name}
+                    href={link.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className="block w-[280px] group"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.6 }}
+                    whileHover={{ y: -8 }}
+                  >
+                    <Card className="h-full min-h-[200px] p-6 border-0 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm transition-all duration-300 hover:shadow-lg ">
+                      <div className="w-12 h-12 rounded-xl bg-[color:var(--color-primary)] mx-auto mb-4 flex items-center justify-center shadow-lg transition-colors group-hover:bg-[color:var(--color-secondary)]">
+                        <link.icon className="h-6 w-6 text-white" />
+                      </div>
+                      <h3 className="font-medium mb-2 text-center">
+                        {link.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground text-center">
+                        {link.description}
+                      </p>
+                    </Card>
+                  </motion.a>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
         <motion.div
@@ -96,7 +101,7 @@ const Connect: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="space-y-6"
+          className="space-y-6 md:pt-46"
         >
           {/* Tokenized response badge */}
           <div
@@ -114,7 +119,7 @@ const Connect: React.FC = () => {
             </span>
           </div>
 
-          <div className="pt-8 border-t border-[color:var(--color-border)]">
+          <div className="pt-10 border-t border-[color:var(--color-border)]">
             <p className="text-muted-foreground">
               © 2025 Carlos Degante. Crafted with React, TypeScript, and lots
               of ☕

@@ -8,7 +8,10 @@ import { motion } from "framer-motion";
  */
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 px-6 relative overflow-hidden">
+    <section
+      id="about"
+      className="min-h-screen py-20 px-6 relative overflow-hidden"
+    >
       {/* Floating Elements */}
       <motion.div
         className="absolute top-20 right-10 w-2 h-2 rounded-full opacity-40 bg-[color:var(--color-secondary)]"

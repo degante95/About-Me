@@ -1,10 +1,40 @@
-/* Brand */
 .brand {
     font-weight: 700;
     font-size: .95rem;
     text-decoration: none;
     color: inherit;
+    position: relative;
+    display: inline-block;
 }
+
+/* stack text in same position */
+.short,
+.full {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* hide full name by default */
+.full {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transform: translateY(4px);
+    white-space: nowrap;
+}
+
+/* hover animation */
+.brand:hover .short {
+    opacity: 0;
+    transform: translateY(-4px);
+}
+
+.brand:hover .full {
+    opacity: 1;
+    transform: translateY(0);
+    color: var(--color-primary);
+}
+
 
 /* Desktop links (visible ≥ 769px) */
 .links {

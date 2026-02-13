@@ -1,8 +1,8 @@
 /* keep flex (as you asked), but normalize cells */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1.75rem 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
     justify-items: center;
     align-items: start;
     margin: 2rem 0 0 0;
@@ -18,12 +18,12 @@
     color: var(--color-primary);
     transition: color 0.2s ease;
 }
-.item:hover { color: var(--color-secondary); cursor: pointer; }
+.item:hover { color: var(--color-secondary);}
 
 /* square icon box → every icon sits in the same-sized frame */
 .icon {
     --icon-box: 44px;                  /* overall box */
-    --icon-size: 28px;                 /* actual glyph size */
+    --icon-size: 44px;                 /* actual glyph size */
     width: var(--icon-box);
     height: var(--icon-box);
     display: flex;
@@ -51,7 +51,7 @@
     .grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        gap: 2rem;
         justify-items: center;
         align-items: start;
     }

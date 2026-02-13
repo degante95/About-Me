@@ -80,8 +80,8 @@ const Hero: React.FC = () => {
         >
           <Button
             size="lg"
-            onClick={() => scrollToSection("#experience")}
-            className="w-full border-0 shadow-lg sm:w-auto bg-gradient-to-r from-[color:var(--color-cta-bg)] to-[color:var(--color-secondary)] hover:brightness-105"
+            onClick={() => scrollToSection("#projects")}
+            className="cursor-pointer w-full border-0 shadow-lg sm:w-auto bg-gradient-to-r from-[color:var(--color-cta-bg)] to-[color:var(--color-secondary)] hover:brightness-105"
             style={{
               boxShadow:
                 "0 10px 25px color-mix(in lab, var(--color-primary) 25%, transparent)",
@@ -94,10 +94,10 @@ const Hero: React.FC = () => {
             variant="outline"
             size="lg"
             onClick={() => scrollToSection("#connect")}
-            className="w-full sm:w-auto backdrop-blur-sm"
+            className="cursor-pointer w-full sm:w-auto backdrop-blur-sm"
             style={{
               borderColor:
-                "color-mix(in lab, var(--color-cta-bg) 30%, transparent)",
+                "color-mix(in lab, var(--color-cta-bg) 80%, transparent)",
               background: "color-mix(in lab, var(--color-bg) 70%, transparent)",
             }}
           >
@@ -115,10 +115,12 @@ const Hero: React.FC = () => {
           <p className="text-muted-foreground mb-4">Scroll to explore</p>
           <motion.button
             onClick={() => scrollToSection("#about")}
-            className="p-2 rounded-full backdrop-blur-sm transition-colors"
+            className="cursor-pointer p-2 rounded-full backdrop-blur-sm transition-colors"
             style={{
-              background: "color-mix(in lab, var(--color-bg) 92%, transparent)",
+              background: "color-mix(in lab, var(--color-bg) 70%, transparent)",
               border: "1px solid var(--color-border)",
+              borderColor:
+                "color-mix(in lab, var(--color-cta-bg) 80%, transparent)",
             }}
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
