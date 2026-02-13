@@ -3,6 +3,7 @@ import s from "./Navbar.module.css"; // ← relative import (avoid barrel cycle)
 import { useScrollNav, type NavLink } from "@hooks/useScrollNav";
 import MobileNavbar from "@components/layout/MobileNav";
 import DarkModeToggle from "../DarkMode";
+import { motion } from "framer-motion";
 
 const NAV_LINKS: NavLink[] = [
   { href: "/home", label: "Home" },
@@ -40,6 +41,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [hasTyped, setHasTyped] = useState(false);
+
   return (
     <nav
       ref={navRef}
@@ -57,7 +60,8 @@ export default function Navbar() {
             className={s.brand}
             aria-label="Go to Home"
           >
-            CD
+            <span className={s.short}>CD</span>
+            <span className={s.full}>Carlos Degante</span>
           </a>
 
           {/* Desktop links */}

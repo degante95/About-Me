@@ -26,6 +26,7 @@ const projects = [
     description:
       "Built a modern personal site with full-screen landing, scroll-synced routing, sticky nav, dark mode, and mobile drawer.",
     hasLink: true,
+    href: "https://github.com/degante95/About-Me",
     metrics: "Modern Design",
     tags: ["React", "TypeScript", "Tailwind"],
     icon: Award,
@@ -81,7 +82,7 @@ const certificates = [
  */
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-20 px-6 relative">
+    <section id="projects" className="min-h-screen py-20 px-6 relative">
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -109,20 +110,24 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Tabs defaultValue="projects" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-12 bg-[color:var(--color-bg)]/5 backdrop-blur-sm border border-[color:var(--color-border)]">
+            <TabsList className="h-auto grid w-full grid-cols-1 sm:grid-cols-2 mb-12 p-0 divide-y sm:divide-y-0 sm:divide-x divide-[color:var(--color-border)] bg-[color:var(--color-bg)]/5 backdrop-blur-sm border border-[color:var(--color-border)] rounded-lg overflow-hidden">
               <TabsTrigger
                 value="projects"
-                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[color:var(--color-primary)]/20 data-[state=active]:to-[color:var(--color-secondary)]/20 data-[state=active]:text-foreground"
+                className="h-10 px-3 flex-row cursor-pointer data-[state=active]:bg-gradient-to-r data-[state=active]:from-[color:var(--color-primary)]/20 data-[state=active]:to-[color:var(--color-secondary)]/20 data-[state=active]:text-foreground"
               >
-                <Award className="w-4 h-4 mr-2" />
-                Projects & Experience
+                <Award className="shrink-0 w-4 h-4 mr-2" />
+                <span className="min-w-0 text-center text-xs sm:text-sm leading-tight">
+                  Projects &amp; Experience
+                </span>
               </TabsTrigger>
               <TabsTrigger
                 value="certificates"
-                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[color:var(--color-secondary)]/20 data-[state=active]:to-[color:var(--color-heading)]/20 data-[state=active]:text-foreground"
+                className="h-10 px-3 flex-row cursor-pointer data-[state=active]:bg-gradient-to-r data-[state=active]:from-[color:var(--color-secondary)]/20 data-[state=active]:to-[color:var(--color-heading)]/20 data-[state=active]:text-foreground"
               >
-                <GraduationCap className="w-4 h-4 mr-2" />
-                Certifications
+                <GraduationCap className="shrink-0 w-4 h-4 mr-2" />
+                <span className="min-w-0 text-center text-xs sm:text-sm leading-tight">
+                  Certifications
+                </span>
               </TabsTrigger>
             </TabsList>
 
@@ -181,11 +186,19 @@ const Projects: React.FC = () => {
 
                           {project.hasLink && (
                             <Button
+                              asChild
                               variant="outline"
                               className="self-start border-white/20 hover:bg-white/10 group/btn"
                             >
-                              <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                              View Project
+                              <motion.a
+                                href={project.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileTap={{ scale: 0.98 }}
+                              >
+                                <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                                View Project
+                              </motion.a>
                             </Button>
                           )}
                         </div>

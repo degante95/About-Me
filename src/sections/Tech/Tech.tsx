@@ -2,18 +2,11 @@ import React from "react";
 import {
   SiTypescript,
   SiJavascript,
-  SiKotlin,
-  SiPython,
   SiReact,
   SiNodedotjs,
-  SiExpress,
-  SiCss3,
-  SiSass,
   SiTerraform,
   SiKubernetes,
   SiIstio,
-  SiAmazondynamodb,
-  SiMongodb,
   SiGit,
   SiGitlab,
   SiIntellijidea,
@@ -26,20 +19,12 @@ import { motion } from "framer-motion";
 const techStack = [
   { icon: <SiTypescript title="TypeScript" />, name: "TypeScript" },
   { icon: <SiJavascript title="JavaScript" />, name: "JavaScript" },
-  { icon: <SiKotlin title="Kotlin" />, name: "Kotlin" },
-  { icon: <FaJava title="Java" />, name: "Java" },
-  { icon: <SiPython title="Python" />, name: "Python" },
   { icon: <SiReact title="ReactJS" />, name: "ReactJS" },
   { icon: <SiNodedotjs title="Node.js" />, name: "Node.js" },
-  { icon: <SiExpress title="Express.js" />, name: "Express.js" },
-  { icon: <SiCss3 title="CSS" />, name: "CSS" },
-  { icon: <SiSass title="Sass" />, name: "Sass" },
   { icon: <FaAws title="AWS" />, name: "AWS" },
   { icon: <SiTerraform title="Terraform" />, name: "Terraform" },
   { icon: <SiKubernetes title="Kubernetes" />, name: "Kubernetes" },
   { icon: <SiIstio title="Istio" />, name: "Istio" },
-  { icon: <SiAmazondynamodb title="DynamoDB" />, name: "DynamoDB" },
-  { icon: <SiMongodb title="DocumentDB" />, name: "DocumentDB" },
   { icon: <SiGit title="Git" />, name: "Git" },
   { icon: <SiGitlab title="GitLab" />, name: "GitLab" },
   { icon: <SiIntellijidea title="IntelliJ" />, name: "IntelliJ" },
@@ -47,7 +32,7 @@ const techStack = [
 ];
 
 const Tech: React.FC = () => (
-  <section id="tech" className="py-20 px-6 relative">
+  <section id="tech" className="min-h-screen py-20 px-6 relative">
     <div className="max-w-6xl mx-auto relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 30 }}

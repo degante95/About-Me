@@ -24,7 +24,10 @@ const socialLinks = [
  */
 const Connect: React.FC = () => {
   return (
-    <section id="connect" className="py-20 px-6 relative overflow-hidden">
+    <section
+      id="connect"
+      className="min-h-screen py-20 px-6 relative overflow-hidden"
+    >
       {/* Floating Elements (tokenized) */}
       <motion.div
         className="absolute top-20 right-10 w-2 h-2 rounded-full opacity-40 bg-[color:var(--color-secondary)]"
@@ -98,7 +101,7 @@ const Connect: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="space-y-6"
+          className="space-y-6 md:pt-46"
         >
           {/* Tokenized response badge */}
           <div
@@ -116,7 +119,7 @@ const Connect: React.FC = () => {
             </span>
           </div>
 
-          <div className="pt-8 border-t border-[color:var(--color-border)]">
+          <div className="pt-10 border-t border-[color:var(--color-border)]">
             <p className="text-muted-foreground">
               © 2025 Carlos Degante. Crafted with React, TypeScript, and lots
               of ☕
